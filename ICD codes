@@ -1,0 +1,48 @@
+ICD-9/10 code bank
+
+/* Johns Hopkins ACG Frailty Defining Indicator Codes */
+/* Malnutrition */
+if dx&i in: ('261', '262', '2638', '2639', 'V772')
+ or i10_dx&i in: ('E41', 'E43', 'E44', 'E45', 'E46') then Malnutrition_=1;
+
+/* Dementia */
+if dx&i in: ('2901', '2902', '2903', '2904')
+ or i10_dx&i in: ('F01', 'F02', 'F03', 'F05', 'G30', 'G310') then dementia_AMS_=1;
+
+/* Severe Vision Impairment */
+if dx&i in: ('3690', '36900', '36901', '36903', '36904', '36906', '36907', '36908')
+ or i10_dx&i in: ('H540X', 'H541', 'H548') then vision_impairment_=1;
+
+/* Decubitus Ulcer */
+if dx&i in: ('7070', '70700', '70701', '70702', '70703', '70704', '70705', '70706',
+             '70707', '70709', '70720', '70721', '70722', '70723', '70724', '70725')
+ or i10_dx&i in: ('L89') then Decubitus_ulcer_=1;
+
+/* Urinary Incontinence */
+if dx&i in: ('5964', '5965', '78834', '78837')
+ or i10_dx&i in: ('N31', 'N364', 'N3942', 'N3945', 'N3946') then Urinaryincontinence_=1;
+
+/* Fecal Incontinence */
+if dx&i in: ('7876')
+ or i10_dx&i in: ('R15') then fecal_incont_=1;
+
+/* Weight Loss */
+if dx&i in: ('7832', '78321', '78322', '7833')
+ or i10_dx&i in: ('R627', 'R630', 'R633', 'R634') then wt_loss_=1;
+
+/* Social Needs Support (Homelessness) */
+if dx&i in: ('V600', 'V601', 'V602')
+ or i10_dx&i in: ('Z590', 'Z591', 'Z594', 'Z597', 'Z598', 'Z599', 'Z74', 'Z750', 'Z751', 'Z753',
+                  'Z754', 'Y93E', 'Y93F', 'Y93G') then homeless_=1;
+
+/* Difficulty in Walking */
+if dx&i in: ('7197', '7812')
+ or i10_dx&i in: ('R26', 'R27', 'Z993') then difficulty_walking_=1;
+
+/* Falls */
+if dx&i in: ('E880', 'E8800', 'E8801', 'E8809', 'E8843')
+ or i10_dx&i in: ('W000XXA', 'W001XXA', 'W002XXA', 'W009XXA', 'W010XXA', 'W0110A', 'W0111A', 'W0118A',
+                  'W03XXXA', 'W04XXXA', 'W05XXXA', 'W052XXA', 'W06XXXA', 'W07XXXA', 'W08XXXA',
+                  'W10XXXA', 'W102XXA', 'W108XXA', 'W109XXA', 'W1781XA', 'W1789XA', 'W1800XA',
+                  'W1801XA', 'W1802XA', 'W1809XA', 'W1811XA', 'W1820XA', 'W1831XA', 'W1839XA',
+                  'W1841XA', 'W1849XA', 'W193XA') then fall_=1;
